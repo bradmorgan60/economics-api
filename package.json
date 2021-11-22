@@ -1,0 +1,26 @@
+{
+  "name": "economics-api",
+  "version": "1.0.0",
+  "description": "This is an API that scans websites for economic news and data",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradmorgan60/economics-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradmorgan60/economics-api/issues"
+  },
+  "homepage": "https://github.com/bradmorgan60/economics-api#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  }
+}
