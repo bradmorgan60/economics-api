@@ -1,15 +1,14 @@
 news = [
     {
-        name: "NBER",
-        address: "https://www.nber.org/",
-        base: "https://www.nber.org"
-    },
-    {
         name: "Reuters",
         address: "https://www.reuters.com/markets/us/"
+    },
+    {
+        name: "Yahoo Finance: Trending Tickers",
+        news: "https://finance.yahoo.com/news/",
+        address: "https://finance.yahoo.com/trending-tickers"
+        
     }
 ]
-
-
 
 module.exports = news;

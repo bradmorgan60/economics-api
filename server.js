@@ -25,7 +25,7 @@ news.forEach(article => {
             econ_data.push({
                 title,
                 source: article.name,
-                address: article.address
+                address: url
                 
             })
 
@@ -37,7 +37,7 @@ news.forEach(article => {
             econ_data.push({
                 title,
                 source: article.name,
-                address: article.address
+                address: url
                 
             })
 
