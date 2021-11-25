@@ -1,12 +1,13 @@
 news = [
     {
         name: "Reuters",
+        base: "https://www.reuters.com",
         address: "https://www.reuters.com/markets/us/"
     },
     {
         name: "Yahoo Finance: Trending Tickers",
-        news: "https://finance.yahoo.com/news/",
-        address: "https://finance.yahoo.com/trending-tickers"
+        base: "https://finance.yahoo.com",
+        address: "https://finance.yahoo.com/trending-tickers/"
         
     }
 ]
