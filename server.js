@@ -19,14 +19,14 @@ news.forEach(article => {
         const html = response.data
         const $ = cheerio.load(html)
 
-        $('a:contains("Vaccine")', html).each(function () {
+        $('a:contains("interest")', html).each(function () {
             const title = $(this).text()
             const url = $(this).attr('href')
 
             econ_data.push({
                 title,
                 source: article.name,
-                address: article.base + url
+                address: article.address + url
             })
 
         })
@@ -37,7 +37,7 @@ news.forEach(article => {
             econ_data.push({
                 title,
                 source: article.name,
-                address: article.base + url
+                address: article.address + url
             })
 
         })
@@ -61,6 +61,16 @@ stocks.forEach(stock => {
                 address: stock.address + url    
             })
         })
+        $('a:contains("US")', html).each(function () {
+            const title = $(this).text()
+            const url = $(this).attr('href')
+
+            trend_stocks.push({
+                source: stock.name,
+                title, 
+                address: stock.address + url    
+            })
+        })
     })
 })
 
@@ -71,6 +81,8 @@ app.get('/', (req, res) => {
 app.get('/news', (req, res) => {
     res.json(econ_data)
 })
+
+
 
 app.get('/stocks', (req, res) => {
     res.json(trend_stocks)
