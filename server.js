@@ -7,6 +7,7 @@ const cheerio = require('cheerio')
 // load in pages in this directory
 const news = require('./news')
 const stocks = require('./stocks')
+const banks = require('./banks')
 const { response } = require('express')
 
 
@@ -44,7 +45,7 @@ news.forEach(article => {
     })
 })
 
-const trend_stocks = []
+const stock_news = []
 stocks.forEach(stock => {
     axios.get(stock.address)
     .then(response => {
@@ -55,7 +56,7 @@ stocks.forEach(stock => {
             const title = $(this).text()
             const url = $(this).attr('href')
 
-            trend_stocks.push({
+            stock_news.push({
                 source: stock.name,
                 title, 
                 address: stock.address + url    
@@ -65,11 +66,26 @@ stocks.forEach(stock => {
             const title = $(this).text()
             const url = $(this).attr('href')
 
-            trend_stocks.push({
+            stock_news.push({
                 source: stock.name,
                 title, 
                 address: stock.address + url    
             })
+        })
+    })
+})
+
+const bank_news = []
+banks.forEach(bank => {
+    axios.get(bank.address)
+    .then(response => {
+        const html = response.data
+        const $ = cheerio.load(html)
+
+        bank_news.push({
+            source: bank.name,
+            address: bank.address
+
         })
     })
 })
@@ -82,10 +98,16 @@ app.get('/news', (req, res) => {
     res.json(econ_data)
 })
 
-
-
 app.get('/stocks', (req, res) => {
-    res.json(trend_stocks)
+    res.json(stock_news)
+})
+
+app.get('/stocks/:ticker', (req, res) => {
+    const ticker = req.params.ticker
+})
+
+app.get('/banks', (req, res) => {
+    res.json()
 })
 
 
